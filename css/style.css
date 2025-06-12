@@ -122,12 +122,42 @@ section .sobre {
 
 
 .jogos2 {
+    display: flex;  
+    justify-content: center;
+    gap: 2vw;
+    margin-top: 5vw;
+
+}
+
+.mario {
+    width: fit-content;
+    padding: 1vw;
+    text-align: center;
     display: flex;
-    background-color: ;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    border: 3px solid red;
+    border-radius: 20px;
+    width: 500px;
+    height: 500px;
 }
 
 .mario img {
-    width: 40%;
-
+    width: 60%;
+    border-radius: 20px;
 }
 
+.marioh1 {
+    margin-top: 2vw;
+}
+
+.popular {
+    margin-top: 10px;
+   
+    color: white;
+    border-radius: 80px;
+    border: 2px solid red;
+    background-color: red;
+    font-size: 15px;
+}
