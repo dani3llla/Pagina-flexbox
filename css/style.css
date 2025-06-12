@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: "Outfit";
+    overflow-x: hidden;
+}
+
+nav .logo {
+    width: 200px;
+
+}
+
+nav ul {
+    height: 80px;
+    display: flex;
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 5px solid red;
+    gap: 300px;
+    align-items: center;
+    text-align: center;
+
+}
+
+nav li {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+nav a:hover {
+    color: red;
+}
+
+.videoswitch2 {
+    display: flex;
+
+}
+
+section .conheça {
+    font-size: 50px;
+    margin-top: 5vh;
+    margin-left: 7vw;
+}
+
+.diversos {
+    margin-top: 2vw;
+    font-size: 40px;
+    text-align: center;
+}
+
+video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin-top: 2vh;
+    margin-left: 7vw;
+    border-radius: 30px;
+}
+
+section .sobre {
+    margin-right: 25vw;
+    margin-left: 2vw;
+    margin-top: 5vh;
+    font-size: 30px;
+}
+
+.barra {
+    margin-top: 6vh;
+    height: 60px;
+    display: flex;
+    list-style: none;
+    background-color: red;
+
+}
+
+.barra .barraimg {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+
+}
+
+.jogos {
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.adquira {
+
+    display: block;
+    width: fit-content;
+    margin: 2px auto 0;
+    color: white;
+    border-radius: 80px;
+    border: 2px solid red;
+    background-color: red;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 10px 30px;
+}
+
+.adquira:hover {
+   color: #000000;
+}
+
+
+.jogos2 {
+    display: flex;
+    background-color: ;
+}
+
+.mario img {
+    width: 40%;
+
+}
+
