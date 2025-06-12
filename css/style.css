@@ -169,6 +169,7 @@ section .sobre {
 }
 
 footer {
+    color: white;
     text-align: center;
     bottom: 0;
     width: 100%;
