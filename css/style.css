@@ -126,6 +126,7 @@ section .sobre {
     justify-content: center;
     gap: 2vw;
     margin-top: 5vw;
+    
 
 }
 
@@ -141,6 +142,7 @@ section .sobre {
     border-radius: 20px;
     width: 500px;
     height: 500px;
+    
 }
 
 .mario img {
@@ -154,7 +156,6 @@ section .sobre {
 
 .popular {
     margin-top: 10px;
-   
     color: white;
     border-radius: 80px;
     border: 2px solid red;
@@ -164,8 +165,8 @@ section .sobre {
 
 .preco {
     font-size: 28px;
-    margin-top: 10px;
-    margin-bottom: 100px;
+    
+   
 }
 
 footer {
