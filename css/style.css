@@ -46,8 +46,8 @@ nav a:hover {
     color: red;
 }
 
-.icons { 
-    position:static;
+.icons {
+    position: static;
     margin-top: 10px;
     width: 30px;
     padding-right: 10px;
@@ -138,9 +138,6 @@ section .sobre {
 
 }
 
-.mario:hover {
-    color: rgb(255, 0, 0);
-}
 
 .mario {
     width: fit-content;
@@ -154,7 +151,13 @@ section .sobre {
     border-radius: 20px;
     width: 500px;
     height: 500px;
+    transition: transform 0.3s ease;
+}
 
+
+.mario:hover {
+    color: rgb(255, 0, 0);
+    transform: scale(1.1);
 }
 
 .mario img {
