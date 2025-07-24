@@ -21,16 +21,23 @@
 
     <header>
         <nav>
-            <ul>
+            <div class="nav-container">
                 <a href="./index.html"><img class="logo" src="./assets/nintendo-logo-0.png" alt="Logo"></a>
-                <li><img src="https://st4.depositphotos.com/20524830/26048/i/450/depositphotos_260480556-stock-photo-house-icon-commerce-set-glyph.jpg" alt="" class="icons"><a href="#">HOME</a></li>
-
-                
-                <li><img src="https://cdn-icons-png.flaticon.com/512/871/871377.png" alt="" class="icons"><a href="#">JOGOS</a></li>
-
-
-                <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT09dUcC9wb8KOZzo7ftzqhVFqlZi52sX1F_Q&s" alt="" class="icons"><a href="#">SOBRE</a></li>
-            </ul>
+                <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+                <ul class="nav-list">
+                    <li><img src="https://st4.depositphotos.com/20524830/26048/i/450/depositphotos_260480556-stock-photo-house-icon-commerce-set-glyph.jpg" alt="" class="icons"><a href="#">HOME</a></li>
+                    <li><img src="https://cdn-icons-png.flaticon.com/512/871/871377.png" alt="" class="icons"><a href="#">JOGOS</a></li>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT09dUcC9wb8KOZzo7ftzqhVFqlZi52sX1F_Q&s" alt="" class="icons"><a href="#">SOBRE</a></li>
+                </ul>
+            </div>
+            <aside class="sidebar">
+                <button class="close-sidebar" aria-label="Fechar menu">&times;</button>
+                <ul>
+                    <li><img src="https://st4.depositphotos.com/20524830/26048/i/450/depositphotos_260480556-stock-photo-house-icon-commerce-set-glyph.jpg" alt="" class="icons"><a href="#">HOME</a></li>
+                    <li><img src="https://cdn-icons-png.flaticon.com/512/871/871377.png" alt="" class="icons"><a href="#">JOGOS</a></li>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT09dUcC9wb8KOZzo7ftzqhVFqlZi52sX1F_Q&s" alt="" class="icons"><a href="#">SOBRE</a></li>
+                </ul>
+            </aside>
         </nav>
     </header>
 
@@ -93,6 +100,27 @@
         <p>&copy; 2025 Daniela Alves. Todos os direitos reservados.</p>
     </footer>
 
+    <script>
+        // Sidebar JS
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const closeSidebar = document.querySelector('.close-sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+        });
+
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+
+        // Fecha sidebar ao clicar fora dela
+        sidebar.addEventListener('click', (e) => {
+            if (e.target === sidebar) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -10,31 +10,62 @@
 
 body {
     font-family: "Outfit";
-    overflow-x: hidden;
 }
 
-nav .logo {
-    margin-top: 7px;
-    width: 200px;
+nav {
+    width: 100%;
+}
 
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 5px solid red;
+    padding: 0 20px;
 }
 
 nav ul {
     height: 80px;
     display: flex;
     list-style: none;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 5px solid red;
+
+
     gap: 300px;
     align-items: center;
     text-align: center;
+    flex-wrap: wrap;
+}
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: red;
+    cursor: pointer;
+}
+
+.nav-list {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+}
+
+nav .logo {
+    margin-top: 7px;
+    width: 200px;
+    max-width: 50vw;
 }
 
 nav li {
     font-size: 20px;
     color: rgb(0, 0, 0);
-
+    display: flex;
+    align-items: center;
 }
 
 nav a {
@@ -48,20 +79,71 @@ nav a:hover {
 
 .icons {
     position: static;
-    margin-top: 10px;
+    margin-top: 0;
     width: 30px;
     padding-right: 10px;
 }
 
-.videoswitch2 {
-    display: flex;
+/* Sidebar styles */
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    flex-direction: column;
+    padding: 30px 20px 20px 20px;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
 
+.sidebar.active {
+    display: flex;
+    transform: translateX(0);
+}
+
+.sidebar .close-sidebar {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: red;
+    align-self: flex-end;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 30px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a {
+    color: #000;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.sidebar a:hover {
+    color: red;
 }
 
 section .conheça {
     font-size: 50px;
     margin-top: 5vh;
     margin-left: 7vw;
+    text-align: center;
 }
 
 .diversos {
@@ -75,16 +157,26 @@ video {
     justify-content: center;
     align-items: center;
     height: 70vh;
+    max-width: 90vw;
     margin-top: 2vh;
-    margin-left: 7vw;
+    margin-left: 0;
     border-radius: 30px;
 }
 
+.videoswitch2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Para empilhar o vídeo e o parágrafo verticalmente */
+    margin: 2vh auto 0; /* Para centralizar o container inteiro horizontalmente */
+}
+
 section .sobre {
-    margin-right: 25vw;
-    margin-left: 2vw;
+    margin-right: 0;
+    margin-left: 0;
     margin-top: 5vh;
     font-size: 30px;
+    text-align: center;
 }
 
 .barra {
@@ -93,25 +185,25 @@ section .sobre {
     display: flex;
     list-style: none;
     background-color: red;
-
+    justify-content: center;
+    align-items: center;
 }
 
 .barra .barraimg {
     display: block;
     margin: 0 auto;
     width: 150px;
-
+    max-width: 50vw;
 }
 
 .jogos {
-
     display: block;
     margin: 0 auto;
     margin-top: 60px;
+    max-width: 90vw;
 }
 
 .adquira {
-
     display: block;
     width: fit-content;
     margin: 2px auto 0;
@@ -122,6 +214,7 @@ section .sobre {
     font-size: 30px;
     text-decoration: none;
     padding: 10px 30px;
+    max-width: 90vw;
 }
 
 .adquira:hover {
@@ -135,12 +228,13 @@ section .sobre {
     gap: 2vw;
     margin-top: 2vw;
     padding-bottom: 60px;
-
+    flex-wrap: wrap;
 }
 
 
 .mario {
-    width: fit-content;
+    width: 100%;
+    max-width: 500px;
     padding: 1vw;
     text-align: center;
     display: flex;
@@ -149,9 +243,11 @@ section .sobre {
     background: rgb(255, 255, 255);
     border: 3px solid red;
     border-radius: 20px;
-    width: 500px;
-    height: 500px;
+    height: auto;
+    min-width: 250px;
+    margin-bottom: 20px;
     transition: transform 0.3s ease;
+
 }
 
 
@@ -163,6 +259,7 @@ section .sobre {
 .mario img {
     width: 60%;
     border-radius: 20px;
+    max-width: 250px;
 }
 
 .marioh1 {
@@ -192,4 +289,151 @@ footer {
     width: 100%;
     padding: 10px;
     background-color: red;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    nav ul {
+        gap: 60px;
+    }
+
+    section .conheça {
+        font-size: 36px;
+    }
+
+    .diversos {
+        font-size: 28px;
+    }
+
+    .mario {
+        max-width: 350px;
+        transition: none;
+    }
+
+    .mario:hover {
+        transform: none;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .nav-list {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-container {
+        padding: 0 10px;
+    }
+
+    nav .logo {
+        width: 150px;
+        margin-bottom: 0;
+    }
+
+    .videoswitch2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* Para empilhar o vídeo e o parágrafo verticalmente */
+        margin: 2vh auto 0;
+        /* Para centralizar o container inteiro horizontalmente */
+    }
+
+    video {
+        width: 500px;
+        border-radius: 30px;
+        /* Remova: display: flex; justify-content: center; align-items: center; margin-left: 0;*/
+    }
+
+    .jogos2 {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .mario {
+        max-width: 90vw;
+    }
+
+    .barra .barraimg {
+        width: 100px;
+    }
+
+    .diversos {
+        font-size: 22px;
+    }
+
+    section .conheça {
+        font-size: 24px;
+    }
+
+    section .sobre {
+        font-size: 18px;
+    }
+
+    .adquira {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-container {
+        padding: 0 5px;
+    }
+
+    nav .logo {
+        width: 100px;
+    }
+
+    .videoswitch2 {
+        flex-direction: column;
+    }
+
+    video {
+        width: 350px;
+        
+    }
+
+    .jogos2 {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .mario {
+        max-width: 98vw;
+        padding: 2vw;
+    }
+
+    .barra .barraimg {
+        width: 70px;
+    }
+
+    .diversos {
+        font-size: 16px;
+    }
+
+    section .conheça {
+        font-size: 16px;
+    }
+
+    section .sobre {
+        font-size: 14px;
+    }
+
+    .adquira {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 6px;
+    }
 }
