@@ -6,434 +6,444 @@
     box-sizing: border-box;
 }
 
-
-
 body {
-    font-family: "Outfit";
+    font-family: "Outfit", sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+}
+
+/* Header Styles */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav {
-    width: 100%;
-}
-
-.nav-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    height: 80px;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 5px solid red;
-    padding: 0 20px;
-}
-
-nav ul {
-    height: 80px;
-    display: flex;
-    list-style: none;
-
-
-    gap: 300px;
     align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2.5rem;
-    color: red;
-    cursor: pointer;
-}
-
-.nav-list {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    list-style: none;
-    margin: 0;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #ffffff 0%, #f8f9fa 100%);
+    border-bottom: 3px solid #e74c3c;
+    height: 80px;
 }
 
 nav .logo {
-    margin-top: 7px;
     width: 200px;
-    max-width: 50vw;
+    transition: transform 0.3s ease;
 }
 
-nav li {
-    font-size: 20px;
-    color: rgb(0, 0, 0);
+nav .logo:hover {
+    transform: scale(1.05);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    justify-content: space-around;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #2c3e50;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-menu li {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
     display: flex;
     align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
-nav a {
+.nav-menu li:hover {
+    transform: translateY(-2px);
+}
+
+.nav-menu a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: #2c3e50;
+    transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: red;
+.nav-menu a:hover {
+    color: #e74c3c;
 }
 
 .icons {
-    position: static;
-    margin-top: 0;
-    width: 30px;
-    padding-right: 10px;
+    width: 24px;
+    height: 24px;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
 }
 
-/* Sidebar styles */
-.sidebar {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 70vw;
-    max-width: 320px;
-    height: 100vh;
-    background: #fff;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    flex-direction: column;
-    padding: 30px 20px 20px 20px;
-    transition: transform 0.3s ease;
-    transform: translateX(-100%);
+.nav-menu li:hover .icons {
+    filter: brightness(0.5) sepia(1) hue-rotate(340deg) saturate(2);
 }
 
-.sidebar.active {
-    display: flex;
-    transform: translateX(0);
-}
-
-.sidebar .close-sidebar {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: red;
-    align-self: flex-end;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    margin-bottom: 30px;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar a {
-    color: #000;
-    text-decoration: none;
-    font-size: 22px;
-}
-
-.sidebar a:hover {
-    color: red;
-}
-
-section .conheça {
-    font-size: 50px;
-    margin-top: 5vh;
-    margin-left: 7vw;
-    text-align: center;
-}
-
-.diversos {
-    margin-top: 5vw;
-    font-size: 40px;
-    text-align: center;
-}
-
-video {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    max-width: 90vw;
-    margin-top: 2vh;
-    margin-left: 0;
-    border-radius: 30px;
+/* Main Content */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .videoswitch2 {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
     align-items: center;
-    flex-direction: column; /* Para empilhar o vídeo e o parágrafo verticalmente */
-    margin: 2vh auto 0; /* Para centralizar o container inteiro horizontalmente */
+    margin: 4rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+section .conheça {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 2rem 0;
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.diversos {
+    margin: 3rem 0 2rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+video {
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+video:hover {
+    transform: scale(1.02);
 }
 
 section .sobre {
-    margin-right: 0;
-    margin-left: 0;
-    margin-top: 5vh;
-    font-size: 30px;
-    text-align: center;
+    flex: 1;
+    min-width: 300px;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: #34495e;
+    line-height: 1.8;
+    padding: 1rem;
+}
+
+.barrav {
+    margin: 4rem 0;
 }
 
 .barra {
-    margin-top: 6vh;
-    height: 60px;
+    height: 80px;
     display: flex;
-    list-style: none;
-    background-color: red;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
 }
 
 .barra .barraimg {
-    display: block;
-    margin: 0 auto;
-    width: 150px;
-    max-width: 50vw;
+    width: 180px;
+    filter: brightness(1.1);
+}
+
+.divertir {
+    text-align: center;
+    margin: 4rem 0;
 }
 
 .jogos {
     display: block;
-    margin: 0 auto;
-    margin-top: 60px;
-    max-width: 90vw;
+    margin: 3rem auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
 }
 
 .adquira {
-    display: block;
-    width: fit-content;
-    margin: 2px auto 0;
+    display: inline-block;
+    margin: 2rem auto;
     color: white;
-    border-radius: 80px;
-    border: 2px solid red;
-    background-color: red;
-    font-size: 30px;
+    border-radius: 50px;
+    border: 3px solid #e74c3c;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 700;
     text-decoration: none;
-    padding: 10px 30px;
-    max-width: 90vw;
+    padding: 15px 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .adquira:hover {
-    color: #000000;
+    background: linear-gradient(45deg, #c0392b, #e74c3c);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
 }
 
 
 .jogos2 {
-    display: flex;
-    justify-content: center;
-    gap: 2vw;
-    margin-top: 2vw;
-    padding-bottom: 60px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    padding-bottom: 4rem;
 }
 
-
 .mario {
-    width: 100%;
-    max-width: 500px;
-    padding: 1vw;
+    padding: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgb(255, 255, 255);
-    border: 3px solid red;
-    border-radius: 20px;
-    height: auto;
-    min-width: 250px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 3px solid #e74c3c;
+    border-radius: 25px;
+    min-height: 450px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
 }
 
+.mario::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.mario:hover::before {
+    left: 100%;
+}
 
 .mario:hover {
-    color: rgb(255, 0, 0);
-    transform: scale(1.1);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(231, 76, 60, 0.2);
+    border-color: #c0392b;
 }
 
 .mario img {
-    width: 60%;
-    border-radius: 20px;
+    width: 80%;
     max-width: 250px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.mario:hover img {
+    transform: scale(1.05);
 }
 
 .marioh1 {
-    margin-top: 2vw;
+    margin: 1.5rem 0 1rem;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: #2c3e50;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
 .popular {
-    margin-top: 10px;
+    margin: 0.5rem 0;
     color: white;
-    border-radius: 80px;
-    border: 2px solid red;
-    background-color: red;
-    font-size: 15px;
-    padding: 0 10px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
 }
 
 .preco {
-    font-size: 28px;
-
-
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #27ae60;
+    margin-top: auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 footer {
     color: white;
     text-align: center;
-    bottom: 0;
     width: 100%;
-    padding: 10px;
-    background-color: red;
+    padding: 2rem;
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+    font-weight: 500;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
 }
 
-/* Responsividade */
+/* Media Queries para Responsividade */
 @media (max-width: 1200px) {
-    nav ul {
-        gap: 60px;
+    .nav-menu {
+        gap: 2rem;
     }
-
-    section .conheça {
-        font-size: 36px;
-    }
-
-    .diversos {
-        font-size: 28px;
-    }
-
-    .mario {
-        max-width: 350px;
-        transition: none;
-    }
-
-    .mario:hover {
-        transform: none;
-    }
-
-}
-
-@media (max-width: 900px) {
-    .nav-list {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-container {
-        padding: 0 10px;
-    }
-
+    
     nav .logo {
         width: 150px;
-        margin-bottom: 0;
-    }
-
-    .videoswitch2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        /* Para empilhar o vídeo e o parágrafo verticalmente */
-        margin: 2vh auto 0;
-        /* Para centralizar o container inteiro horizontalmente */
-    }
-
-    video {
-        width: 500px;
-        border-radius: 30px;
-        /* Remova: display: flex; justify-content: center; align-items: center; margin-left: 0;*/
-    }
-
-    .jogos2 {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .mario {
-        max-width: 90vw;
-    }
-
-    .barra .barraimg {
-        width: 100px;
-    }
-
-    .diversos {
-        font-size: 22px;
-    }
-
-    section .conheça {
-        font-size: 24px;
-    }
-
-    section .sobre {
-        font-size: 18px;
-    }
-
-    .adquira {
-        font-size: 18px;
-        padding: 8px 16px;
     }
 }
 
-@media (max-width: 600px) {
-    .nav-container {
-        padding: 0 5px;
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
     }
-
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+        gap: 2rem;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
     nav .logo {
-        width: 100px;
+        width: 120px;
     }
-
+    
     .videoswitch2 {
         flex-direction: column;
+        text-align: center;
+        padding: 1rem;
     }
-
+    
     video {
-        width: 350px;
-        
+        width: 100%;
+        min-width: unset;
+        margin: 0;
     }
-
+    
     .jogos2 {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
+    
+    main {
+        padding: 0 1rem;
+    }
+    
+    .icons {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .nav-menu li {
+        font-size: 16px;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(231, 76, 60, 0.1);
+        width: 100%;
+    }
+    
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+}
 
+@media (max-width: 480px) {
     .mario {
-        max-width: 98vw;
-        padding: 2vw;
+        min-height: 400px;
+        padding: 1.5rem;
     }
-
-    .barra .barraimg {
-        width: 70px;
-    }
-
-    .diversos {
-        font-size: 16px;
-    }
-
-    section .conheça {
-        font-size: 16px;
-    }
-
-    section .sobre {
-        font-size: 14px;
-    }
-
+    
     .adquira {
-        font-size: 14px;
-        padding: 6px 10px;
+        padding: 12px 30px;
     }
+    
+    .barra {
+        height: 60px;
+    }
+    
+    .barra .barraimg {
+        width: 120px;
+    }
+}
 
-    footer {
-        font-size: 12px;
-        padding: 6px;
+/* Animações suaves */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mario {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.mario:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.mario:nth-child(3) {
+    animation-delay: 0.4s;
 }
